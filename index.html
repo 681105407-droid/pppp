@@ -3,456 +3,436 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IT Open House - ลงทะเบียน & Dashboard</title>
+    <title>ร้านอาหารตามสั่ง - เมนูเด็ดต้มแซ่บไฮไลต์</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Chart.js CDN -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- Google Fonts (Kanit) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Kanit', sans-serif;
-            background-color: #f8fafc;
         }
     </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              amberTheme: {
+                50: '#fffbe1',
+                100: '#fef3c7',
+                500: '#f59e0b',
+                600: '#d97706',
+                700: '#b45309',
+              },
+              chiliRed: '#dc2626'
+            }
+          }
+        }
+      }
+    </script>
 </head>
-<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+<body class="bg-amber-50/50 text-slate-800 min-h-screen flex flex-col justify-between">
 
-    <!-- Header / Banner -->
-    <header class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white py-12 px-4 shadow-lg">
-        <div class="max-w-6xl mx-auto text-center">
-            <span class="inline-block bg-white/20 backdrop-blur-md text-white text-sm font-medium px-4 py-1.5 rounded-full mb-3 shadow-inner">
-                🚀 IT Open House
+    <!-- Header Section -->
+    <header class="bg-gradient-to-r from-amber-600 via-orange-600 to-red-600 text-white py-8 px-4 shadow-lg text-center relative overflow-hidden">
+        <div class="max-w-4xl mx-auto relative z-10">
+            <span class="inline-block bg-white/20 backdrop-blur-md text-white text-xs md:text-sm font-semibold px-4 py-1 rounded-full mb-2 shadow-inner">
+                🍳 ร้านอาหารตามสั่งออนไลน์
             </span>
-            <h1 class="text-3xl md:text-5xl font-extrabold tracking-tight mb-3">
-                เปิดบ้านคณะเทคโนโลยีสารสนเทศ
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-2">
+                ร้านอาหารตามสั่ง (เมนูเด็ดต้มแซ่บ)
             </h1>
-            <p class="text-blue-100 text-base md:text-lg max-w-2xl mx-auto">
-                ลงทะเบียนเข้าร่วมกิจกรรม พร้อมเลือกสาขาวิชาที่คุณสนใจเพื่อรับข่าวสารและสิทธิพิเศษมากมาย!
+            <p class="text-amber-100 text-sm md:text-base max-w-xl mx-auto">
+                วัตถุดิบสดใหม่ ทำสดใหม่ทุกจาน สั่งง่ายคำนวณราคาทันที
             </p>
         </div>
     </header>
 
-    <!-- Main Content Container -->
-    <main class="max-w-6xl mx-auto px-4 py-8 w-full flex-grow">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-            
-            <!-- SECTION 1: Form -->
-            <section class="lg:col-span-7 bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 transition-all hover:shadow-2xl">
-                <div class="flex items-center space-x-3 mb-6 pb-4 border-b border-slate-100">
-                    <div class="p-3 bg-indigo-50 text-indigo-600 rounded-xl">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path>
-                        </svg>
-                    </div>
-                    <div>
-                        <h2 class="text-xl md:text-2xl font-bold text-slate-800">แบบฟอร์มลงทะเบียน</h2>
-                        <p class="text-xs md:text-sm text-slate-500">กรุณากรอกข้อมูลให้ครบถ้วนเพื่อลงทะเบียน</p>
-                    </div>
+    <!-- Main Container -->
+    <main class="max-w-4xl mx-auto px-4 py-8 w-full flex-grow">
+
+        <!-- 1. HERO / HIGHLIGHT SECTION (ต้มแซ่บหมูเด้ง / กระดูกอ่อน) -->
+        <section class="mb-10">
+            <div class="bg-gradient-to-br from-red-600 via-orange-600 to-amber-500 rounded-3xl p-6 md:p-8 text-white shadow-2xl relative overflow-hidden border-2 border-orange-400/30">
+                <div class="absolute -right-10 -bottom-10 opacity-15 text-9xl font-black select-none pointer-events-none">
+                    🌶️
                 </div>
-
-                <form id="registrationForm" class="space-y-5">
-                    <!-- คำนำหน้า & ชื่อ-นามสกุล -->
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div>
-                            <label for="prefix" class="block text-sm font-medium text-slate-700 mb-1.5">คำนำหน้า <span class="text-rose-500">*</span></label>
-                            <select id="prefix" name="prefix" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none text-slate-700">
-                                <option value="" disabled selected>เลือกคำนำหน้า</option>
-                                <option value="นาย">นาย</option>
-                                <option value="นาง">นาง</option>
-                                <option value="นางสาว">นางสาว</option>
-                                <option value="เด็กชาย">เด็กชาย</option>
-                                <option value="เด็กหญิง">เด็กหญิง</option>
-                            </select>
-                        </div>
-                        <div class="md:col-span-2">
-                            <label for="fullname" class="block text-sm font-medium text-slate-700 mb-1.5">ชื่อ - นามสกุล <span class="text-rose-500">*</span></label>
-                            <input type="text" id="fullname" name="fullname" placeholder="สมชาย ใจดี" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
-                    </div>
-
-                    <!-- เพศ & อายุ -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="gender" class="block text-sm font-medium text-slate-700 mb-1.5">เพศ <span class="text-rose-500">*</span></label>
-                            <select id="gender" name="gender" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none text-slate-700">
-                                <option value="" disabled selected>เลือกเพศ</option>
-                                <option value="ชาย">ชาย</option>
-                                <option value="หญิง">หญิง</option>
-                                <option value="ทางเลือก/ไม่ระบุ">ทางเลือก / ไม่ระบุ</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="age" class="block text-sm font-medium text-slate-700 mb-1.5">อายุ (ปี) <span class="text-rose-500">*</span></label>
-                            <input type="number" id="age" name="age" min="1" max="100" placeholder="17" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
+                
+                <div class="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                    <div class="space-y-3">
+                        <span class="inline-flex items-center gap-1.5 bg-yellow-400 text-red-950 font-extrabold px-3.5 py-1 rounded-full text-xs md:text-sm uppercase tracking-wider shadow-md">
+                            🔥 เมนูเด็ดต้องลอง (Highlight)
+                        </span>
+                        <h2 class="text-2xl md:text-4xl font-extrabold text-white leading-tight">
+                            ต้มแซ่บหมูเด้ง / กระดูกอ่อน
+                        </h2>
+                        <p class="text-red-100 text-sm md:text-base max-w-lg">
+                            น้ำซุปแซ่บจัดจ้าน ถึงเครื่องต้มยำ สมุนไพรไทยแท้ หมูเด้งนุ่มเด้งลิ้น และกระดูกอ่อนเคี้ยวกรุบกรอบ
+                        </p>
+                        <div class="flex items-center gap-4 pt-1">
+                            <span class="bg-red-950/40 backdrop-blur-md text-yellow-300 font-bold px-3 py-1 rounded-lg text-xs md:text-sm border border-yellow-400/30">
+                                ระดับความเผ็ด: 🔥🔥🔥
+                            </span>
+                            <span class="bg-white/20 text-white font-medium px-3 py-1 rounded-lg text-xs md:text-sm">
+                                หมวดหมู่: ต้ม/แกง
+                            </span>
                         </div>
                     </div>
 
-                    <!-- ระดับชั้น & โรงเรียน -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="education" class="block text-sm font-medium text-slate-700 mb-1.5">ระดับชั้น <span class="text-rose-500">*</span></label>
-                            <select id="education" name="education" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none text-slate-700">
-                                <option value="" disabled selected>เลือกระดับชั้น</option>
-                                <option value="มัธยมศึกษาตอนต้น">มัธยมศึกษาตอนต้น</option>
-                                <option value="มัธยมศึกษาตอนปลาย">มัธยมศึกษาตอนปลาย</option>
-                                <option value="ปวช.">ปวช.</option>
-                                <option value="ปวส.">ปวส.</option>
-                                <option value="อื่นๆ">อื่นๆ</option>
-                            </select>
+                    <div class="flex flex-col sm:flex-row md:flex-col items-start md:items-end justify-between gap-3 bg-black/20 p-4 rounded-2xl backdrop-blur-sm border border-white/10 shrink-0">
+                        <div class="text-left md:text-right">
+                            <span class="text-xs text-amber-200 block">ราคาพิเศษ</span>
+                            <span class="text-3xl md:text-4xl font-black text-yellow-300">120 ฿</span>
                         </div>
-                        <div>
-                            <label for="school" class="block text-sm font-medium text-slate-700 mb-1.5">ชื่อโรงเรียน / สถาบัน <span class="text-rose-500">*</span></label>
-                            <input type="text" id="school" name="school" placeholder="โรงเรียนวิทยาศาสตร์..." required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
-                    </div>
-
-                    <!-- เบอร์โทรศัพท์ & LineID -->
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label for="phone" class="block text-sm font-medium text-slate-700 mb-1.5">เบอร์โทรศัพท์ <span class="text-rose-500">*</span></label>
-                            <input type="tel" id="phone" name="phone" placeholder="0812345678" required class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
-                        <div>
-                            <label for="lineId" class="block text-sm font-medium text-slate-700 mb-1.5">Line ID</label>
-                            <input type="text" id="lineId" name="lineId" placeholder="line_id_123" class="w-full px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:bg-white focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all outline-none">
-                        </div>
-                    </div>
-
-                    <!-- สาขาวิชาที่สนใจ -->
-                    <div class="pt-2">
-                        <label class="block text-sm font-semibold text-slate-800 mb-2">สาขาวิชาที่สนใจ <span class="text-rose-500">*</span></label>
-                        <div class="space-y-2 bg-slate-50 p-4 rounded-xl border border-slate-200">
-                            <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-all cursor-pointer">
-                                <input type="radio" name="interest" value="เทคโนโลยีธุรกิจดิจิทัล" required class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                <span class="text-sm font-medium text-slate-700">เทคโนโลยีธุรกิจดิจิทัล</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-all cursor-pointer">
-                                <input type="radio" name="interest" value="เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                <span class="text-sm font-medium text-slate-700">เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-all cursor-pointer">
-                                <input type="radio" name="interest" value="ดิจิทัลมีเดียอาร์ต" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                <span class="text-sm font-medium text-slate-700">ดิจิทัลมีเดียอาร์ต</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-all cursor-pointer">
-                                <input type="radio" name="interest" value="วิศวกรรมความปลอดภัย" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                <span class="text-sm font-medium text-slate-700">วิศวกรรมความปลอดภัย</span>
-                            </label>
-                            <label class="flex items-center space-x-3 p-2 rounded-lg hover:bg-white transition-all cursor-pointer">
-                                <input type="radio" name="interest" value="ไม่สนใจ" class="w-4 h-4 text-indigo-600 focus:ring-indigo-500 border-slate-300">
-                                <span class="text-sm font-medium text-slate-700">ยังไม่สนใจสาขาใดเป็นพิเศษ</span>
-                            </label>
-                        </div>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" id="submitBtn" class="w-full bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white font-medium py-3 px-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 flex items-center justify-center space-x-2">
-                        <span>ส่งข้อมูลลงทะเบียน</span>
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                        </svg>
-                    </button>
-                    <!-- Notification status -->
-                    <div id="statusMessage" class="hidden text-center text-sm font-medium p-3 rounded-xl"></div>
-                </form>
-            </section>
-
-            <!-- SECTION 2: Dashboard / Chart -->
-            <section class="lg:col-span-5 bg-white rounded-2xl shadow-xl border border-slate-100 p-6 md:p-8 flex flex-col justify-between transition-all hover:shadow-2xl">
-                <div>
-                    <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
-                        <div class="flex items-center space-x-3">
-                            <div class="p-3 bg-purple-50 text-purple-600 rounded-xl">
-                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 3.055A9.001 9.001 0 1020.945 13H11V3.055z"></path>
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
-                                </svg>
-                            </div>
-                            <div>
-                                <h2 class="text-xl md:text-2xl font-bold text-slate-800">สรุปความสนใจ</h2>
-                                <p class="text-xs md:text-sm text-slate-500">สัดส่วนสาขาวิชาที่ได้รับความสนใจ</p>
-                            </div>
-                        </div>
-                        <button id="refreshBtn" title="โหลดข้อมูลใหม่" class="p-2 text-slate-400 hover:text-indigo-600 rounded-lg hover:bg-slate-100 transition-all">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
-                            </svg>
+                        <button onclick="addToCart('ต้มแซ่บหมูเด้ง / กระดูกอ่อน', 120)" class="w-full sm:w-auto bg-yellow-400 hover:bg-yellow-300 text-red-950 font-bold px-5 py-2.5 rounded-xl shadow-lg hover:shadow-xl transition-all flex items-center justify-center gap-2 active:scale-95">
+                            <span>+ เพิ่มลงตะกร้า</span>
                         </button>
                     </div>
-
-                    <!-- Total count box -->
-                    <div class="bg-gradient-to-r from-slate-800 to-indigo-900 text-white rounded-xl p-4 mb-6 shadow-md flex justify-between items-center">
-                        <div>
-                            <span class="text-xs text-slate-300 block">ผู้ลงทะเบียนทั้งหมด</span>
-                            <span id="totalCount" class="text-2xl font-extrabold">0</span> <span class="text-sm text-slate-300">คน</span>
-                        </div>
-                        <div class="text-xs bg-white/10 px-2.5 py-1 rounded-full text-slate-200">
-                            อัปเดตแบบเรียลไทม์
-                        </div>
-                    </div>
-
-                    <!-- Chart Canvas Container -->
-                    <div class="relative w-full aspect-square max-w-[320px] mx-auto flex items-center justify-center">
-                        <canvas id="interestChart"></canvas>
-                        <!-- Loading Indicator -->
-                        <div id="chartLoading" class="absolute inset-0 bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center rounded-xl">
-                            <div class="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin mb-2"></div>
-                            <span class="text-xs font-medium text-slate-500">กำลังโหลดข้อมูล...</span>
-                        </div>
-                    </div>
                 </div>
+            </div>
+        </section>
 
-                <div class="mt-6 pt-4 border-t border-slate-100 text-center text-xs text-slate-400">
-                    * ข้อมูลสรุปอัปเดตจากการลงทะเบียนจริง
-                </div>
-            </section>
-        </div>
+        <!-- 2. CATEGORY FILTERS -->
+        <section class="mb-6">
+            <div class="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+                <button onclick="filterCategory('all')" id="btn-all" class="filter-btn active bg-orange-600 text-white px-5 py-2 rounded-xl text-sm font-semibold shadow-md whitespace-nowrap transition-all">
+                    ทั้งหมด (10)
+                </button>
+                <button onclick="filterCategory('ต้ม/แกง')" id="btn-ต้ม/แกง" class="filter-btn bg-white text-slate-700 hover:bg-orange-50 px-5 py-2 rounded-xl text-sm font-semibold shadow-sm border border-orange-100 whitespace-nowrap transition-all">
+                    🥣 ต้ม/แกง
+                </button>
+                <button onclick="filterCategory('อาหารจานเดียว')" id="btn-อาหารจานเดียว" class="filter-btn bg-white text-slate-700 hover:bg-orange-50 px-5 py-2 rounded-xl text-sm font-semibold shadow-sm border border-orange-100 whitespace-nowrap transition-all">
+                    🍳 อาหารจานเดียว (ผัด)
+                </button>
+                <button onclick="filterCategory('เมนูเส้น')" id="btn-เมนูเส้น" class="filter-btn bg-white text-slate-700 hover:bg-orange-50 px-5 py-2 rounded-xl text-sm font-semibold shadow-sm border border-orange-100 whitespace-nowrap transition-all">
+                    🍜 เมนูเส้น
+                </button>
+            </div>
+        </section>
+
+        <!-- 3. MENU GRID (9 ITEMS REST) -->
+        <section class="mb-12">
+            <div id="menu-grid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <!-- Data rendered dynamically from JS -->
+            </div>
+        </section>
+
+        <!-- 4. SHOPPING CART & CHECKOUT SECTION -->
+        <section id="cart-section" class="bg-white rounded-2xl shadow-xl border border-orange-100 p-6 md:p-8">
+            <div class="flex items-center justify-between pb-4 border-b border-slate-100 mb-4">
+                <h3 class="text-xl font-bold text-slate-800 flex items-center gap-2">
+                    🛒 ตะกร้าสินค้าของคุณ
+                </h3>
+                <span id="cart-count-badge" class="bg-orange-100 text-orange-700 font-bold px-3 py-1 rounded-full text-xs">
+                    0 รายการ
+                </span>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cart-items" class="space-y-3 mb-6 max-h-60 overflow-y-auto pr-1">
+                <p class="text-slate-400 text-sm text-center py-6">ยังไม่มีรายการอาหารในตะกร้า</p>
+            </div>
+
+            <!-- Total Price & Actions -->
+            <div class="bg-amber-50/60 rounded-xl p-4 border border-amber-100 mb-6 flex justify-between items-center">
+                <span class="font-bold text-slate-700">ราคารวมทั้งหมด:</span>
+                <span id="cart-total" class="text-2xl font-black text-orange-600">0 ฿</span>
+            </div>
+
+            <!-- Checkout Buttons -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <button onclick="checkoutLINE()" class="bg-emerald-500 hover:bg-emerald-600 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2">
+                    💬 สั่งซื้อผ่าน LINE Official
+                </button>
+                <a href="tel:0812345678" class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-3 px-4 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-center">
+                    📞 โทรสั่งอาหาร (081-234-5678)
+                </a>
+            </div>
+        </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-sm border-t border-slate-800">
-        <p>© 2026 Faculty of Information Technology. All rights reserved.</p>
+    <footer class="bg-slate-900 text-slate-400 py-6 text-center text-xs md:text-sm border-t border-slate-800">
+        <p>© 2026 ร้านอาหารตามสั่ง - ข้อมูลเชื่อมต่อกับ Google Sheets API</p>
     </footer>
 
-    <!-- JavaScript Handling -->
+    <!-- JavaScript Data & Logic -->
     <script>
-        // *** ใส่ Web App URL ของ Google Apps Script ที่นี่ ***
-        const WEB_APP_URL = 'YOUR_WEB_APP_URL';
+        // Endpoint URL สำหรับเชื่อมต่อ Google Sheets ( SheetDB / Apps Script / API )
+        const GOOGLE_SHEET_API_URL = 'YOUR_GOOGLE_SHEETS_API_URL';
 
-        const ALL_CATEGORIES = [
-            'เทคโนโลยีธุรกิจดิจิทัล',
-            'เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล',
-            'ดิจิทัลมีเดียอาร์ต',
-            'วิศวกรรมความปลอดภัย',
-            'ไม่สนใจ'
+        // ข้อมูลสำรอง 10 รายการตามโครงสร้าง Google Sheets
+        const defaultMenuData = [
+            {
+                "เมนูอาหาร": "ต้มแซ่บหมูเด้ง / กระดูกอ่อน",
+                "หมวดหมู่": "ต้ม/แกง",
+                "คำบรรยาย": "น้ำซุปแซ่บจัดจ้าน ถึงเครื่องต้มยำ หมูเด้งนุ่มเด้งลิ้น",
+                "ราคา (บาท)": 120,
+                "ระดับความเผ็ด": "🔥🔥🔥",
+                "เมนูแนะนำ": "ใช่ (Highlight)"
+            },
+            {
+                "เมนูอาหาร": "กะเพราหมูกรอบ",
+                "หมวดหมู่": "อาหารจานเดียว",
+                "คำบรรยาย": "หมูกรอบผัดกะเพรารสจัดจ้าน หอมใบกะเพราแท้",
+                "ราคา (บาท)": 70,
+                "ระดับความเผ็ด": "🔥🔥",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "พริกแกงไก่",
+                "หมวดหมู่": "อาหารจานเดียว",
+                "คำบรรยาย": "เนื้อไก่นุ่มผัดพริกแกงใต้เข้มข้น ใส่ถั่วฝักยาว",
+                "ราคา (บาท)": 60,
+                "ระดับความเผ็ด": "🔥🔥",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "หมูกระเทียม",
+                "หมวดหมู่": "อาหารจานเดียว",
+                "คำบรรยาย": "หมูหมักนุ่มผัดซอสกระเทียมพริกไทย หอมเจียวกรอบ",
+                "ราคา (บาท)": 60,
+                "ระดับความเผ็ด": "-",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "ข้าวผัดปู/กุ้ง",
+                "หมวดหมู่": "อาหารจานเดียว",
+                "คำบรรยาย": "ข้าวผัดเม็ดสวย หอมกลิ่นกระทะ ใส่เนื้อปูหรือกุ้งสด",
+                "ราคา (บาท)": 80,
+                "ระดับความเผ็ด": "-",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "ผัดซีอิ๊วหมู/ไก่",
+                "หมวดหมู่": "เมนูเส้น",
+                "คำบรรยาย": "เส้นใหญ่ผัดซีอิ๊วดำหอมกลิ่นกระทะ ใส่คะน้ากรอบ",
+                "ราคา (บาท)": 60,
+                "ระดับความเผ็ด": "-",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "ราดหน้าทะเล",
+                "หมวดหมู่": "เมนูเส้น",
+                "คำบรรยาย": "น้ำราดหน้าเหนียวนุ่มกำลังดี กุ้งและหมึกสดชิ้นใหญ่",
+                "ราคา (บาท)": 80,
+                "ระดับความเผ็ด": "-",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "คะน้าหมูกรอบ",
+                "หมวดหมู่": "อาหารจานเดียว",
+                "คำบรรยาย": "ใบคะน้าสดกรอบ ผัดน้ำมันหอยใส่หมูกรอบหนังกรอบ",
+                "ราคา (บาท)": 70,
+                "ระดับความเผ็ด": "🔥",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "สุกี้ทะเล (น้ำ/แห้ง)",
+                "หมวดหมู่": "เมนูเส้น",
+                "คำบรรยาย": "สุกี้พร้อมน้ำจิ้มสุกี้รสเด็ด เข้มข้นกลมกล่อม",
+                "ราคา (บาท)": 80,
+                "ระดับความเผ็ด": "🔥",
+                "เมนูแนะนำ": "ไม่ใช่"
+            },
+            {
+                "เมนูอาหาร": "ต้มยำกุ้งน้ำข้น",
+                "หมวดหมู่": "ต้ม/แกง",
+                "คำบรรยาย": "กุ้งแม่น้ำตัวโต น้ำซุปเข้มข้นใส่นมสดและพริกเผา",
+                "ราคา (บาท)": 150,
+                "ระดับความเผ็ด": "🔥🔥🔥",
+                "เมนูแนะนำ": "ไม่ใช่"
+            }
         ];
 
-        const CATEGORY_COLORS = [
-            '#6366f1', // Indigo
-            '#3b82f6', // Blue
-            '#ec4899', // Pink
-            '#10b981', // Emerald
-            '#94a3b8'  // Slate
-        ];
-
-        let interestChart = null;
+        let currentMenu = [];
+        let activeCategory = 'all';
+        let cart = [];
 
         document.addEventListener('DOMContentLoaded', () => {
-            initChart();
-            fetchDashboardData();
-
-            const form = document.getElementById('registrationForm');
-            form.addEventListener('submit', handleFormSubmit);
-
-            document.getElementById('refreshBtn').addEventListener('click', () => {
-                fetchDashboardData();
-            });
+            loadMenuData();
         });
 
-        // สร้าง Chart.js Doughnut Chart เริ่มต้น
-        function initChart() {
-            const ctx = document.getElementById('interestChart').getContext('2d');
-            interestChart = new Chart(ctx, {
-                type: 'doughnut',
-                data: {
-                    labels: ALL_CATEGORIES,
-                    datasets: [{
-                        data: [0, 0, 0, 0, 0],
-                        backgroundColor: CATEGORY_COLORS,
-                        borderWidth: 2,
-                        borderColor: '#ffffff',
-                        hoverOffset: 6
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        legend: {
-                            position: 'bottom',
-                            labels: {
-                                font: {
-                                    family: 'Kanit',
-                                    size: 12
-                                },
-                                padding: 15,
-                                usePointStyle: true,
-                                pointStyle: 'circle'
-                            }
-                        },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const label = context.label || '';
-                                    const value = context.raw || 0;
-                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
-                                    const percentage = total > 0 ? ((value / total) * 100).toFixed(1) : 0;
-                                    return ` ${label}: ${value} คน (${percentage}%)`;
-                                }
-                            }
-                        }
-                    },
-                    cutout: '68%'
+        // ดึงข้อมูลจาก Sheets API หรือใช้ Default Data
+        async function loadMenuData() {
+            if (GOOGLE_SHEET_API_URL !== 'YOUR_GOOGLE_SHEETS_API_URL') {
+                try {
+                    const res = await fetch(GOOGLE_SHEET_API_URL);
+                    const data = await res.json();
+                    if (Array.isArray(data) && data.length > 0) {
+                        currentMenu = data;
+                    } else {
+                        currentMenu = defaultMenuData;
+                    }
+                } catch (e) {
+                    console.error("Fetch API error, falling back to default data:", e);
+                    currentMenu = defaultMenuData;
                 }
+            } else {
+                currentMenu = defaultMenuData;
+            }
+
+            renderGrid();
+        }
+
+        // Render รายการอาหาร 9 เมนูที่เหลือใน Grid
+        function renderGrid() {
+            const grid = document.getElementById('menu-grid');
+            grid.innerHTML = '';
+
+            // กรองเอาเฉพาะเมนูที่ไม่ใช่ Highlight
+            const nonHighlightItems = currentMenu.filter(item => item['เมนูแนะนำ'] !== 'ใช่ (Highlight)');
+
+            // Filter ตาม Category
+            const filteredItems = activeCategory === 'all' 
+                ? nonHighlightItems 
+                : nonHighlightItems.filter(item => item['หมวดหมู่'] === activeCategory);
+
+            if (filteredItems.length === 0) {
+                grid.innerHTML = `<p class="col-span-2 text-center text-slate-400 py-8">ไม่พบรายการอาหารในหมวดหมู่นี้</p>`;
+                return;
+            }
+
+            filteredItems.forEach(item => {
+                const name = item['เมนูอาหาร'];
+                const price = Number(item['ราคา (บาท)']);
+                const category = item['หมวดหมู่'];
+                const desc = item['คำบรรยาย'] || '';
+                const spicy = item['ระดับความเผ็ด'] || '-';
+
+                grid.innerHTML += `
+                    <div class="bg-white rounded-2xl shadow-md hover:shadow-lg transition-all p-5 border border-orange-100/80 flex flex-col justify-between">
+                        <div>
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="bg-amber-100 text-amber-800 text-xs font-bold px-2.5 py-0.5 rounded-md">
+                                    ${category}
+                                </span>
+                                ${spicy !== '-' ? `<span class="text-xs">${spicy}</span>` : ''}
+                            </div>
+                            <h4 class="font-bold text-slate-800 text-lg mb-1">${name}</h4>
+                            <p class="text-slate-500 text-xs md:text-sm leading-relaxed">${desc}</p>
+                        </div>
+
+                        <div class="flex justify-between items-center mt-5 pt-3 border-t border-slate-50">
+                            <span class="text-orange-600 font-extrabold text-xl">${price} ฿</span>
+                            <button onclick="addToCart('${name}', ${price})" class="bg-orange-500 hover:bg-orange-600 text-white font-semibold text-xs md:text-sm px-4 py-2 rounded-xl transition-all active:scale-95 shadow-sm">
+                                + เพิ่มลงตะกร้า
+                            </button>
+                        </div>
+                    </div>
+                `;
             });
         }
 
-        // ดึงข้อมูลแบบ GET มาประมวลผลใส่ Chart
-        async function fetchDashboardData() {
-            const loadingEl = document.getElementById('chartLoading');
-            loadingEl.classList.remove('hidden');
+        // กรองหมวดหมู่
+        function filterCategory(cat) {
+            activeCategory = cat;
 
-            try {
-                // หากยังไม่ได้เปลี่ยน URL ให้ใช้ข้อมูลจำลองสำหรับพรีวิว
-                if (WEB_APP_URL === 'YOUR_WEB_APP_URL') {
-                    console.warn('ระบุ YOUR_WEB_APP_URL สำหรับการใช้งานจริง');
-                    setTimeout(() => {
-                        updateChartWithCounts({
-                            'เทคโนโลยีธุรกิจดิจิทัล': 12,
-                            'เทคโนโลยีสารสนเทศและนวัตกรรมดิจิทัล': 25,
-                            'ดิจิทัลมีเดียอาร์ต': 18,
-                            'วิศวกรรมความปลอดภัย': 8,
-                            'ไม่สนใจ': 4
-                        });
-                        loadingEl.classList.add('hidden');
-                    }, 500);
-                    return;
-                }
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('bg-orange-600', 'text-white', 'shadow-md');
+                btn.classList.add('bg-white', 'text-slate-700', 'shadow-sm');
+            });
 
-                const response = await fetch(WEB_APP_URL);
-                if (!response.ok) throw new Error('Network response was not ok');
-                
-                const data = await response.json(); 
-                // data คาดว่าจะเป็น Array ของ Object เช่น [{interest: '...'}, ...] หรือ Map สรุปแล้ว
-
-                const counts = {};
-                ALL_CATEGORIES.forEach(cat => counts[cat] = 0);
-
-                if (Array.isArray(data)) {
-                    data.forEach(item => {
-                        const val = item.interest || item.สาขา || item['สาขาวิชาที่สนใจ'];
-                        if (counts.hasOwnProperty(val)) {
-                            counts[val]++;
-                        } else if (val) {
-                            counts['ไม่สนใจ']++;
-                        }
-                    });
-                } else if (typeof data === 'object') {
-                    // ในกรณีที่ Apps Script ส่งแบบสรุป { 'เทคโนโลยีธุรกิจดิจิทัล': 5, ... }
-                    ALL_CATEGORIES.forEach(cat => {
-                        if (data[cat] !== undefined) counts[cat] = Number(data[cat]);
-                    });
-                }
-
-                updateChartWithCounts(counts);
-
-            } catch (error) {
-                console.error('Error fetching dashboard data:', error);
-            } finally {
-                loadingEl.classList.add('hidden');
+            const activeBtn = document.getElementById(`btn-${cat}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-white', 'text-slate-700', 'shadow-sm');
+                activeBtn.classList.add('bg-orange-600', 'text-white', 'shadow-md');
             }
+
+            renderGrid();
         }
 
-        // อัปเดตตัวเลขเข้า Chart.js
-        function updateChartWithCounts(counts) {
-            const chartData = ALL_CATEGORIES.map(cat => counts[cat] || 0);
-            const total = chartData.reduce((sum, val) => sum + val, 0);
-
-            document.getElementById('totalCount').textContent = total.toLocaleString('th-TH');
-
-            interestChart.data.datasets[0].data = chartData;
-            interestChart.update();
-        }
-
-        // ส่งข้อมูลแบบ POST เมื่อกด Submit
-        async function handleFormSubmit(event) {
-            event.preventDefault();
-
-            const submitBtn = document.getElementById('submitBtn');
-            const statusMsg = document.getElementById('statusMessage');
-
-            const formData = new FormData(event.target);
-            const payload = {
-                prefix: formData.get('prefix'),
-                fullname: formData.get('fullname'),
-                gender: formData.get('gender'),
-                age: Number(formData.get('age')),
-                education: formData.get('education'),
-                school: formData.get('school'),
-                phone: formData.get('phone'),
-                lineId: formData.get('lineId') || '-',
-                interest: formData.get('interest'),
-                timestamp: new Date().toISOString()
-            };
-
-            // แสดงสถานะ Loading
-            submitBtn.disabled = true;
-            submitBtn.classList.add('opacity-70', 'cursor-not-allowed');
-            submitBtn.innerHTML = `
-                <div class="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-                <span>กำลังบันทึกข้อมูล...</span>
-            `;
-
-            try {
-                if (WEB_APP_URL === 'YOUR_WEB_APP_URL') {
-                    // โหมดจำลองสำหรับทดสอบ UI
-                    await new Promise(resolve => setTimeout(resolve, 1000));
-                    showStatus('บันทึกข้อมูลสำเร็จ (โหมด Demo)', 'success');
-                    event.target.reset();
-                    fetchDashboardData();
-                    return;
-                }
-
-                // Google Apps Script ต้องการ mode: 'no-cors' เมื่อส่งแบบ JSON
-                const response = await fetch(WEB_APP_URL, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'text/plain;charset=utf-8' // ป้องกัน CORS Preflight Trigger กับ Apps Script
-                    },
-                    body: JSON.stringify(payload)
-                });
-
-                showStatus('ลงทะเบียนเรียบร้อยแล้ว! ขอบคุณที่ให้ความสนใจ', 'success');
-                event.target.reset();
-                
-                // ดึงข้อมูล Dashboard ใหม่ทันที
-                setTimeout(() => {
-                    fetchDashboardData();
-                }, 1000);
-
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                showStatus('เกิดข้อผิดพลาดในการส่งข้อมูล กรุณาลองใหม่อีกครั้ง', 'error');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.classList.remove('opacity-70', 'cursor-not-allowed');
-                submitBtn.innerHTML = `
-                    <span>ส่งข้อมูลลงทะเบียน</span>
-                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
-                    </svg>
-                `;
-            }
-        }
-
-        function showStatus(text, type) {
-            const statusMsg = document.getElementById('statusMessage');
-            statusMsg.textContent = text;
-            statusMsg.classList.remove('hidden', 'bg-emerald-100', 'text-emerald-700', 'bg-rose-100', 'text-rose-700');
-
-            if (type === 'success') {
-                statusMsg.classList.add('bg-emerald-100', 'text-emerald-700');
+        // ระบบตะกร้าสินค้า
+        function addToCart(name, price) {
+            const existing = cart.find(i => i.name === name);
+            if (existing) {
+                existing.qty += 1;
             } else {
-                statusMsg.classList.add('bg-rose-100', 'text-rose-700');
+                cart.push({ name, price, qty: 1 });
+            }
+            updateCartUI();
+        }
+
+        function changeQty(name, delta) {
+            const item = cart.find(i => i.name === name);
+            if (item) {
+                item.qty += delta;
+                if (item.qty <= 0) {
+                    cart = cart.filter(i => i.name !== name);
+                }
+            }
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            const cartContainer = document.getElementById('cart-items');
+            const cartTotal = document.getElementById('cart-total');
+            const cartBadge = document.getElementById('cart-count-badge');
+
+            if (cart.length === 0) {
+                cartContainer.innerHTML = `<p class="text-slate-400 text-sm text-center py-6">ยังไม่มีรายการอาหารในตะกร้า</p>`;
+                cartTotal.textContent = '0 ฿';
+                cartBadge.textContent = '0 รายการ';
+                return;
             }
 
-            setTimeout(() => {
-                statusMsg.classList.add('hidden');
-            }, 5000);
+            let total = 0;
+            let totalQty = 0;
+            cartContainer.innerHTML = '';
+
+            cart.forEach(item => {
+                const itemSum = item.price * item.qty;
+                total += itemSum;
+                totalQty += item.qty;
+
+                cartContainer.innerHTML += `
+                    <div class="flex items-center justify-between bg-slate-50 p-3 rounded-xl border border-slate-100">
+                        <div class="flex-grow pr-2">
+                            <span class="font-bold text-sm text-slate-800 block">${item.name}</span>
+                            <span class="text-xs text-slate-500">${item.price} ฿ x ${item.qty} = <strong class="text-orange-600">${itemSum} ฿</strong></span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <button onclick="changeQty('${item.name}', -1)" class="w-7 h-7 bg-white text-slate-700 font-bold border border-slate-200 rounded-lg flex items-center justify-center hover:bg-slate-100">
+                                -
+                            </button>
+                            <span class="font-bold text-sm w-4 text-center">${item.qty}</span>
+                            <button onclick="changeQty('${item.name}', 1)" class="w-7 h-7 bg-white text-slate-700 font-bold border border-slate-200 rounded-lg flex items-center justify-center hover:bg-slate-100">
+                                +
+                            </button>
+                        </div>
+                    </div>
+                `;
+            });
+
+            cartTotal.textContent = `${total} ฿`;
+            cartBadge.textContent = `${totalQty} รายการ`;
+        }
+
+        // ส่งรายการอาหารเข้า LINE Official Account
+        function checkoutLINE() {
+            if (cart.length === 0) {
+                alert('กรุณาเลือกรายการอาหารลงตะกร้าก่อนสั่งซื้อครับ');
+                return;
+            }
+
+            let message = 'สั่งอาหารตามสั่งออนไลน์:\n\n';
+            let total = 0;
+
+            cart.forEach((item, index) => {
+                const sum = item.price * item.qty;
+                total += sum;
+                message += `${index + 1}. ${item.name} x${item.qty} (${sum} บาท)\n`;
+            });
+
+            message += `\nราคารวมทั้งหมด: ${total} บาท`;
+
+            // ลิงก์ส่งไป LINE (เปลี่ยนเป็น LINE ID ของร้านคุณได้)
+            const lineUrl = `https://line.me/R/msg/text/?${encodeURIComponent(message)}`;
+            window.open(lineUrl, '_blank');
         }
     </script>
 </body>
